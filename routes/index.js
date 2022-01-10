@@ -14,7 +14,7 @@ router.get(['/reservation/:id', '/reservation/:id:'], async (req, res) => {
   try {
     const id = new objectId(req.params.id)
     const reservation = await collection.findOne({ _id: id })
-    res.render('reservation', reservation);
+    res.render('reservation', {title: 'Reservation' , ...reservation});
 
   } catch (err) { 
     console.log(err);
